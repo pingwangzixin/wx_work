@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹窗</title>
+    <script src="./jquery.min.js"></script>
+    <script src="./X_query.js"></script>
+    <style>
+        button{width:98px;height:33px;background:#20c808;border:none;cursor: pointer;outline: none;color:#fff;margin-left:10px;}
+        .tc{width:300px;height:200px;background:#09c;border:1px solid #ccc;position:absolute;left:50%;top:50%;margin-left:-150px;margin-top:-100px;}
+        .zhezhao{position:absolute;background:rgba(0,0,0,.3);top:0;left:0;right:0;bottom:0;z-index:-1;}
+        ul li{width:100px;height:20px;display: inline-block;}
+    </style>
+</head>
+<body>
+   <div style="width:260px;margin:20px auto;">
+       <button class="sbtn">显示</button>
+        <button class="hbtn">隐藏</button>
+   </div>
+    <div class="add">添加</div>
+    <ul>
+        <li>1111</li>
+        <li>1111</li>
+        <li>1111</li>
+        <li>1111</li>
+    </ul>
+    
+    <div class="tc" style="display:none">
+        弹窗
+    </div>
+    <div class="zhezhao" style="display:none"></div>
+    <script>
+        $(function(){
+            $(".add").on("click",function(){
+                $("ul").append('<li>'+parseInt(Math.random()*1000)+'</li>')
+            })
+            
+            $(".sbtn").Whover({
+                "state":"background",
+                "color":"#798",
+                "colorn":"#20c808"
+            })
+            
+            $("ul li").Whover({
+                "state":"color",
+                "color":"#f00",
+                "colorn":"#000"
+            })
+            
+            $(".sbtn").Shwindow({
+                "obj":".sbtn",
+                "state":"show",
+                "ele":['.zhezhao'],
+                "time":"500"
+            })
+       
+            $(".hbtn").Shwindow({
+                "obj":".hbtn",
+                "state":"hide",
+                "ele":['.zhezhao'],
+                "time":"500"
+            })
+        })
+    </script>
+</body>
+</html>
