@@ -1,5 +1,5 @@
 (function ($) {
-    var opt, color = {}
+    var opt,color= {}
     $.fn.extend({
         "Shwindow": function (opt) {
             $(document).on("click", opt.obj, function () {
@@ -15,12 +15,14 @@
                 };
             })
         }
-        , "Whover": function hover(color) {
-            this.hover(function () {
-                $(this).attr("style", color.state + ":" + color.color);
-            }, function () {
-                $(this).attr("style", color.state + ":" + color.colorn);
+        , "Whover": function(color) {
+            $(document).on("mouseover mouseout",color.obj,function(event){
+                if(event.type=="mouseover"){
+                    $(this).attr("style", color.state + ":" + color.color);
+                }else{
+                    $(this).attr("style", color.state + ":" + color.colorn);
+                }
             })
-        }
-    , })
+        },
+    })
 })(jQuery)
