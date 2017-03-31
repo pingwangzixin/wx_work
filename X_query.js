@@ -1,3 +1,4 @@
+
 (function ($) {
     var opt,color= {}
     $.fn.extend({
@@ -24,5 +25,21 @@
                 }
             })
         },
+        "tcwin": function (tc){
+            $(document).on("click",tc.obj,function(){
+                for(var i=0;i<tc.hide.length;i++){
+                    $(tc.hide[i]).hide();
+                }
+                for(var i=0;i<tc.show.length;i++){
+                    $(tc.show[i]).show();
+                }
+                $(tc.tcele).html(tc.html)
+                setTimeout(function(){
+                    for(var i=0;i<tc.show.length;i++){
+                        $(tc.show[i]).hide();
+                    }
+                },tc.time)
+            })
+        }
     })
 })(jQuery)
