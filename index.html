@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +52,6 @@
 <body>
     <div style="width:260px;margin:20px auto;">
         <button class="sbtn">显示</button>
-        <button class="sbtn1">显11111示</button>
         <button class="hbtn">隐藏</button>
     </div>
     <div class="add">添加</div>
@@ -61,7 +61,6 @@
         <li>1111</li>
         <li>1111</li>
     </ul>
-    <textarea name="" id="" cols="30" rows="10" class="text" maxlength="30"></textarea>
     <div class="tc" style="display:none"> 弹窗 </div>
     <div class="zhezhao" style="display:none"></div>
     <script>
@@ -95,15 +94,11 @@
                 , ele: ['.zhezhao']
                 , time: 500
             })
-        })
-        
-        $(".sbtn1").tcwin({
-            obj:".sbtn1",
-            hide:[],
-            show:['.zhezhao','.tc'],
-            tcele:'.tc',
-            html:'提交成功',
-            time:1000,
+            
+            var oldarr=[20,21,23,33,33,45,663,23,2,4,32,4,2,4,23];
+            $(document).arrdelrepeat(oldarr,function(newarr){
+                console.log(newarr)
+            })
         })
         
     </script>

@@ -1,6 +1,5 @@
-
 (function ($) {
-    var opt,color= {}
+    var opt, color = {}
     $.fn.extend({
         "Shwindow": function (opt) {
             $(document).on("click", opt.obj, function () {
@@ -16,30 +15,40 @@
                 };
             })
         }
-        , "Whover": function(color) {
-            $(document).on("mouseover mouseout",color.obj,function(event){
-                if(event.type=="mouseover"){
+        , "Whover": function (color) {
+            $(document).on("mouseover mouseout", color.obj, function (event) {
+                if (event.type == "mouseover") {
                     $(this).attr("style", color.state + ":" + color.color);
-                }else{
+                }
+                else {
                     $(this).attr("style", color.state + ":" + color.colorn);
                 }
             })
-        },
-        "tcwin": function (tc){
-            $(document).on("click",tc.obj,function(){
-                for(var i=0;i<tc.hide.length;i++){
+        }
+        , "tcwin": function (tc) {
+            $(document).on("click", tc.obj, function () {
+                for (var i = 0; i < tc.hide.length; i++) {
                     $(tc.hide[i]).hide();
                 }
-                for(var i=0;i<tc.show.length;i++){
+                for (var i = 0; i < tc.show.length; i++) {
                     $(tc.show[i]).show();
                 }
                 $(tc.tcele).html(tc.html)
-                setTimeout(function(){
-                    for(var i=0;i<tc.show.length;i++){
+                setTimeout(function () {
+                    for (var i = 0; i < tc.show.length; i++) {
                         $(tc.show[i]).hide();
                     }
-                },tc.time)
+                }, tc.time)
             })
-        }
+        },
+        "arrdelrepeat":function(arr,call){
+            var result=[];
+            for(var i=0;i<arr.length;i++){
+                if(result.indexOf(arr[i])==-1){
+                    result.push(arr[i])
+                }
+            }
+            call(result);//把新的去重的数组通过回调函数传递出去
+        },
     })
 })(jQuery)
